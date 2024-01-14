@@ -50,6 +50,30 @@ spec:
           env:
             - name: PORT
               value: "8090"
+
+            - name: KAFKA_TOPIC
+              valueFrom:
+                secretKeyRef:
+                  name: app-env
+                  key: kafkaTopic
+
+            - name: KAFKA_BROKER
+              valueFrom:
+                secretKeyRef:
+                  name: app-env
+                  key: kafkaBroker
+
+            - name: KAFKA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: app-env
+                  key: kafkaUsername
+
+            - name: KAFKA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-env
+                  key: kafkaPassword
 ---
 apiVersion: v1
 kind: Service
